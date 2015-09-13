@@ -10,15 +10,9 @@ var router = require("./router.js");
 
 var http = require('http');
 
-http.createServer(function (request, response) {
-  /*response.writeHead(200, {'Content-Type': 'text/plain'});
-  setInterval(function(){
-    response.write(new Date() + "\n");
-  }, 1000); // every 1 second (1000 ms)
- // response.end('Hello World\n'); */
-  //router.loadCSS(request, response);
-  router.home(request, response);
-  router.user(request,response);
+http.createServer(function (request, response) { // create server and listen at port 4567
+  router.home(request, response); // call the the home function in router.js to deal with the home route and display the appropriate page
+  router.user(request,response); // call the user function in router.js to get and load the user's information
 }).listen(4567);
 
 console.log('Server running at http://<workspace-url>/');
